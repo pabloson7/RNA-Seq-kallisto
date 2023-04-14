@@ -135,7 +135,7 @@ plotPCA(vsd, intgroup = c("Condition1","Condition2"))
 ```
 However, the options of this function are quite limited, and the figure in not very pretty, so it is better to use the package PCAtools, which also allows visualising the percentage explained by each PCA and plotting more than two PCAs in the same graph. The use of colours and shapes to represent the different conditions also facilitates the interpretation of the PCA results.
 ```
-p <- pca(assay(vsd), metadata = count_info, removeVar = 0.1)
+p <- pca(assay(vsd), metadata = phenotypes, removeVar = 0.1)
 screeplot(p)   #Percentage explained by each PCA
 biplot(p, colby = 'Condition1', shape="Condition2", legendPosition = 'top', lab = NULL, legendLabSize = 12, legendIconSize = 6, title = "", pointSize=5)
 pairsplot(p, components = c(1:5), triangle = TRUE, trianglelabSize = 12, hline = 0, vline = 0, pointSize = 1, gridlines.major = FALSE, gridlines.minor = FALSE, title = 'Pairs plot', plotaxes = FALSE, margingaps = unit(c(-0.01, -0.01, -0.01, -0.01), 'cm'), colby = 'Condition1', shape="Condition2")
